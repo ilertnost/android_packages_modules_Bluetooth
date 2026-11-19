@@ -32,6 +32,13 @@
 #include "bta/include/bta_av_api.h"
 #include "include/hardware/bt_av.h"
 
+#define APTX_HQ 0x1000
+#define APTX_LL 0x2000
+#define APTX_HQ_LATENCY 2000
+#define APTX_LL_LATENCY 700
+
+uint16_t btif_av_get_aptx_mode_info();
+
 /** Callback for connection state change.
  *  state will have one of the values from btav_connection_state_t
  */
