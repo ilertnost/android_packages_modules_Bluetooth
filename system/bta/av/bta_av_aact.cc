@@ -3298,6 +3298,9 @@ static void bta_av_offload_codec_builder(tBTA_AV_SCB* p_scb, tBT_A2DP_OFFLOAD* p
     case BTAV_A2DP_CODEC_INDEX_SOURCE_APTX_HD:
       codec_type = BTA_AV_CODEC_TYPE_APTXHD;
       break;
+    case BTAV_A2DP_CODEC_INDEX_SOURCE_APTX_ADAPTIVE:
+      codec_type = BTA_AV_CODEC_TYPE_APTX_ADAPTIVE;
+      break;
     case BTAV_A2DP_CODEC_INDEX_SOURCE_LDAC:
       codec_type = BTA_AV_CODEC_TYPE_LDAC;
       break;

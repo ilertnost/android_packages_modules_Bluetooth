@@ -694,6 +694,14 @@ const char* A2DP_CodecIndexStr(btav_a2dp_codec_index_t codec_index);
 // Returns true on success, otherwise false.
 bool A2DP_InitCodecConfig(btav_a2dp_codec_index_t codec_index, AvdtpSepConfig* p_cfg);
 
+bool A2DP_IsCodecEnabledInOffload(btav_a2dp_codec_index_t codec_index);
+
+bool A2DP_Get_Aptx_AdaptiveR2_1_Supported();
+
+bool A2DP_Get_Aptx_AdaptiveR2_2_Supported();
+
+bool A2DP_Get_Source_Aptx_Adaptive_SplitTx_Supported();
+
 // Gets the A2DP effective frame size that each encoded media frame should not
 // exceed this value.
 // |p_codec_info| contains the codec information.

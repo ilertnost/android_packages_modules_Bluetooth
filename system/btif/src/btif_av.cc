@@ -4327,3 +4327,8 @@ std::string btav_a2dp_codec_info_t::ToString() const {
 
   return result_string;
 }
+
+uint16_t btif_av_get_aptx_mode_info() {
+  // aptX Adaptive is currently always negotiated in high-quality mode.
+  return APTX_HQ;
+}

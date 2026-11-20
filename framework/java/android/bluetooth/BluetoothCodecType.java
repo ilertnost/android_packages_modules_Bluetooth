@@ -63,6 +63,10 @@ public final class BluetoothCodecType implements Parcelable {
     /** Aptx HD codec identifier. See {@link BluetoothCodecType#getCodecId}. */
     public static final long CODEC_ID_APTX_HD = 0x002400d7ff;
 
+    /** aptX Adaptive codec identifier. See {@link BluetoothCodecType#getCodecId}. */
+    @Hide
+    public static final long CODEC_ID_APTX_AD = 0x00ad00d7ff;
+
     /**
      * LDAC codec identifier. See {@link BluetoothCodecType#getCodecId}.
      *
@@ -93,6 +97,7 @@ public final class BluetoothCodecType implements Parcelable {
         CODEC_ID_AAC,
         CODEC_ID_APTX,
         CODEC_ID_APTX_HD,
+        CODEC_ID_APTX_AD,
         CODEC_ID_LDAC,
         CODEC_ID_SONY_LDAC,
         CODEC_ID_OPUS,
@@ -227,6 +232,7 @@ public final class BluetoothCodecType implements Parcelable {
                     case BluetoothCodecConfig.SOURCE_CODEC_TYPE_AAC -> CODEC_ID_AAC;
                     case BluetoothCodecConfig.SOURCE_CODEC_TYPE_APTX -> CODEC_ID_APTX;
                     case BluetoothCodecConfig.SOURCE_CODEC_TYPE_APTX_HD -> CODEC_ID_APTX_HD;
+                    case BluetoothCodecConfig.SOURCE_CODEC_TYPE_APTX_ADAPTIVE -> CODEC_ID_APTX_AD;
                     case BluetoothCodecConfig.SOURCE_CODEC_TYPE_LDAC -> {
                         if (Flags.a2dpLdacApi()) {
                             yield CODEC_ID_SONY_LDAC;
@@ -272,6 +278,12 @@ public final class BluetoothCodecType implements Parcelable {
         if (codecId == CODEC_ID_APTX_HD) {
             return new BluetoothCodecType(
                     BluetoothCodecConfig.SOURCE_CODEC_TYPE_APTX_HD, CODEC_ID_APTX_HD, "AptX HD");
+        }
+        if (codecId == CODEC_ID_APTX_AD) {
+            return new BluetoothCodecType(
+                    BluetoothCodecConfig.SOURCE_CODEC_TYPE_APTX_ADAPTIVE,
+                    CODEC_ID_APTX_AD,
+                    "aptX Adaptive");
         }
         if (Flags.a2dpLdacApi()) {
             if (codecId == CODEC_ID_SONY_LDAC) {
