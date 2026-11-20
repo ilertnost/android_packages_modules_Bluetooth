@@ -92,6 +92,7 @@ cc_library_shared {
         "libbluetooth_types",
         "libbt-audio-asrc",
         "libbt-audio-hal-interface",
+        "vendor.qti.hardware.bluetooth.audio-V1-ndk",
         "libbt-bta",
         "libbt-btu-main-thread",
         "libbt-common",
