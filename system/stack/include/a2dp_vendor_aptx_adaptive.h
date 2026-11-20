@@ -83,7 +83,7 @@ typedef struct {
   uint8_t fourth_setup_pref;            // fourth setup preference
   uint8_t eoc0;                         // no further expansion
   uint8_t eoc1;                         // capability extension end
-} tA2DP_APTX_ADAPTIVE_VENDOR_DATA;
+} __attribute__((packed)) tA2DP_APTX_ADAPTIVE_VENDOR_DATA;
 // This is due to be updated
 typedef struct {
   uint32_t vendorId;

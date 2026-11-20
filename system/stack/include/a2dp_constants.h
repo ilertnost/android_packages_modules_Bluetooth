@@ -23,7 +23,7 @@
 #include <optional>
 
 /* Maximum size in bytes of the codec capabilities information element. */
-#define AVDT_CODEC_SIZE 20
+#define AVDT_CODEC_SIZE 54
 
 /* Profile supported features */
 #define A2DP_SUPF_PLAYER 0x0001

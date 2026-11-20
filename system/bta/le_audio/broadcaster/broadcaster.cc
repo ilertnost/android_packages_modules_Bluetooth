@@ -1498,7 +1498,8 @@ void LeAudioBroadcaster::Initialize(bluetooth::le_audio::LeAudioBroadcasterCallb
   }
 
   if (!std::move(audio_hal_verifier).Run()) {
-    log::fatal("HAL requirements not met. Init aborted.");
+    log::warn("HAL requirements not met. Init aborted.");
+    return;
   }
 
   instance = new LeAudioBroadcasterImpl(callbacks);

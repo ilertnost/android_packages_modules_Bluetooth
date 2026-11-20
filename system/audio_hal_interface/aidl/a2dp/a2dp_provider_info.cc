@@ -126,8 +126,11 @@ static std::optional<btav_a2dp_codec_index_t> assignSourceCodecIndex(
       if (vendor_id == A2DP_APTX_HD_VENDOR_ID && codec_id == A2DP_APTX_HD_CODEC_ID_BLUETOOTH) {
         return BTAV_A2DP_CODEC_INDEX_SOURCE_APTX_HD;
       }
-      if (vendor_id == A2DP_APTX_ADAPTIVE_VENDOR_ID &&
-          codec_id == A2DP_APTX_ADAPTIVE_CODEC_ID_BLUETOOTH) {
+      log::info("A2DP vendor codec from HAL: name={}, vendorId=0x{:x}, codecId=0x{:x}",
+                codec.name, vendor_id, codec_id);
+      if ((vendor_id == A2DP_APTX_ADAPTIVE_VENDOR_ID &&
+           codec_id == A2DP_APTX_ADAPTIVE_CODEC_ID_BLUETOOTH) ||
+          codec.name == "APTX_ADAPTIVE") {
         return BTAV_A2DP_CODEC_INDEX_SOURCE_APTX_ADAPTIVE;
       }
       if (vendor_id == A2DP_LDAC_VENDOR_ID && codec_id == A2DP_LDAC_CODEC_ID) {
