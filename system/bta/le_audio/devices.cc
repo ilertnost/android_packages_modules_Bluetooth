@@ -1480,6 +1480,15 @@ void LeAudioDevice::StartLinkQualityReports(uint16_t cis_handle) {
 }
 
 void LeAudioDevice::StartConnSubrate() {
+  // The WCN Bluetooth controller on this platform crashes with a firmware
+  // Hardware Error 0x0f right after the host sends an LE Subrate Request.
+  // Disable host-initiated subrating by default; it can be re-enabled by
+  // setting persist.bluetooth.leaudio.subrating_disabled=false.
+  if (osi_property_get_bool("persist.bluetooth.leaudio.subrating_disabled", true)) {
+    log::info("Connection subrating disabled for {} (WCN firmware workaround)", address_);
+    return;
+  }
+
   log::verbose(
           " Subrate flag enabled. local conrtoller - {}, {}: remote controller - {}, remote host - "
           "{}",
