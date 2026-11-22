@@ -562,6 +562,10 @@ struct HciLayer::impl {
     module_.LifeCycleStop();
     kill(getpid(), SIG_RESET_CTRL);
 #else
+    if (event_view.GetHardwareCode() == 0x0f) {
+      log::warn("Ignoring non-fatal Hardware Error Event with code 0x0f");
+      return;
+    }
     log::fatal("Hardware Error Event with code 0x{:02x}", event_view.GetHardwareCode());
 #endif
   }
